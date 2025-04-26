@@ -1,0 +1,52 @@
+{
+  "name": "ts-library-tsup",
+  "version": "0.0.0",
+  "description": "A dummy library to make a library deployment example",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepare": "husky",
+    "lint": "",
+    "commit": "cz"
+  },
+  "keywords": [
+    "ts"
+  ],
+  "author": "Juan Vigario",
+  "license": "ISC",
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/cz-commitlint"
+    }
+  },
+  "devDependencies": {
+    "@commitlint/config-conventional": "^19.8.0",
+    "@commitlint/cz-commitlint": "^19.8.0",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^11.0.2",
+    "@semantic-release/npm": "^12.0.1",
+    "commitizen": "^4.3.1",
+    "commitlint": "^19.8.0",
+    "cz-customizable": "^7.4.0",
+    "husky": "^9.1.7",
+    "semantic-release": "^24.2.3",
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.3",
+    "vitest": "^3.1.2"
+  }
+}
