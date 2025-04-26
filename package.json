@@ -19,6 +19,9 @@
     "type": "git",
     "url": "https://github.com/Piwexx/ts-library-tsup"
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
