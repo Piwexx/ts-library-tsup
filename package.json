@@ -1,6 +1,6 @@
 {
   "name": "ts-library-tsup",
-  "private":"false",
+  "private": "false",
   "version": "0.0.0",
   "description": "A dummy library to make a library deployment example",
   "main": "dist/index.cjs",
@@ -28,7 +28,9 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "prepare": "husky",
-    "lint": "",
+    "lint": "eslint '**/*.ts'",
+    "lint:fix": "eslint '**/*.ts' --fix",
+    "format": "prettier --write '**/*.ts' ",
     "commit": "cz"
   },
   "keywords": [
@@ -41,9 +43,16 @@
       "path": "@commitlint/cz-commitlint"
     }
   },
+  "lint-staged": {
+      "**/*.{ts}": [
+        "eslint --fix",
+        "prettier --write"
+      ]
+  },
   "devDependencies": {
     "@commitlint/config-conventional": "^19.8.0",
     "@commitlint/cz-commitlint": "^19.8.0",
+    "@eslint/js": "^9.25.1",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/github": "^11.0.2",
@@ -51,10 +60,14 @@
     "commitizen": "^4.3.1",
     "commitlint": "^19.8.0",
     "cz-customizable": "^7.4.0",
+    "eslint": "^9.25.1",
+    "globals": "^16.0.0",
     "husky": "^9.1.7",
+    "lint-staged": "^15.5.1",
     "semantic-release": "^24.2.3",
     "tsup": "^8.4.0",
     "typescript": "^5.8.3",
+    "typescript-eslint": "^8.31.0",
     "vitest": "^3.1.2"
   }
 }
