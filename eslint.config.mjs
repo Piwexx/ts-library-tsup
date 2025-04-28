@@ -1,10 +1,12 @@
 import tseslint from "typescript-eslint";
-import { defineConfig } from "eslint/config";
 import globals from "globals";
+import prettier from "eslint-plugin-prettier";
+import simpleImportSort from "eslint-plugin-simple-import-sort";
+import { defineConfig } from "eslint/config";
 
-export default defineConfig([
+export default defineConfig(
   {
-    files: ["**/*.{ts}"],
+    files: ["src/**/*.{ts}"],
     languageOptions: {
       parser: tseslint.parser,
       parserOptions: {
@@ -13,11 +15,18 @@ export default defineConfig([
       globals: globals.browser,
     },
     plugins: {
-      prettier: require("eslint-plugin-prettier"),
-      "simple-import-sort": require("eslint-plugin-simple-import-sort"),
+      prettier,  // Aquí usamos la importación correcta
+      "simple-import-sort": simpleImportSort,  // Y aquí también
+    },
+    settings: {
+      "import/resolver": {
+        typescript: {
+          project: "./tsconfig.json"
+        }
+      }
     },
     rules: {
-      ...tseslint.configs.recommended.rules,
+      ...tseslint.configs.recommended,
       "prettier/prettier": "error",
       "simple-import-sort/imports": [
         "error",
@@ -35,4 +44,4 @@ export default defineConfig([
       "simple-import-sort/exports": "error",
     },
   },
-]);
+);
