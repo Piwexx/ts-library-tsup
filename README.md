@@ -16,60 +16,67 @@ Este repositorio es una plantilla base para crear librerías en **TypeScript** m
 
 1. **Clonar el repositorio**:
 
-    ```bash
-    git clone https://github.com/tu-usuario/ts-library-tsup.git nueva-libreria
-    cd nueva-libreria
-    ```
+   ```bash
+   git clone https://github.com/tu-usuario/ts-library-tsup.git nueva-libreria
+   cd nueva-libreria
+   ```
 
 2. **Instalar las dependencias**:
 
-    ```bash
-    npm install
-    ```
+   ```bash
+   npm install
+   ```
 
 ## 📋 Scripts Disponibles
 
 El setup incluye una serie de scripts preconfigurados para facilitar el desarrollo. Estos son los principales:
 
 - **`build`**: Compila la librería utilizando `tsup`.
-    ```bash
-    npm run build
-    ```
+
+  ```bash
+  npm run build
+  ```
 
 - **`dev`**: Compila y observa los cambios en tiempo real (modo watch).
-    ```bash
-    npm run dev
-    ```
+
+  ```bash
+  npm run dev
+  ```
 
 - **`test`**: Ejecuta las pruebas utilizando **vitest**.
-    ```bash
-    npm run test
-    ```
+
+  ```bash
+  npm run test
+  ```
 
 - **`test:watch`**: Ejecuta las pruebas en modo observador.
-    ```bash
-    npm run test:watch
-    ```
+
+  ```bash
+  npm run test:watch
+  ```
 
 - **`lint`**: Linta el código utilizando **ESLint**.
-    ```bash
-    npm run lint
-    ```
+
+  ```bash
+  npm run lint
+  ```
 
 - **`lint:fix`**: Linta y arregla automáticamente los problemas de estilo y errores de código.
-    ```bash
-    npm run lint:fix
-    ```
+
+  ```bash
+  npm run lint:fix
+  ```
 
 - **`format`**: Formatea el código utilizando **Prettier**.
-    ```bash
-    npm run format
-    ```
+
+  ```bash
+  npm run format
+  ```
 
 - **`commit`**: Utiliza **Commitizen** para crear un commit siguiendo el estándar de **Conventional Commits**.
-    ```bash
-    npm run commit
-    ```
+  ```bash
+  npm run commit
+  ```
 
 ## 🔑 Gestión de Versiones Automática con Semantic Release
 
@@ -96,6 +103,7 @@ Puedes usar **npm link** para desarrollar y probar tu librería localmente antes
 ```bash
 npm link
 ```
+
 Luego, en tu proyecto destino, puedes usar:
 
 ```bash

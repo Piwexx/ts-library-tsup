@@ -23,14 +23,14 @@
     "registry": "https://registry.npmjs.org"
   },
   "scripts": {
-    "build": "tsup",
+    "build": "rm -rf dist && tsup",
     "dev": "tsup --watch",
     "test": "vitest run",
     "test:watch": "vitest",
     "prepare": "husky",
-    "lint": "eslint --ext .ts src/",
-    "lint:fix": "eslint --ext .ts  src/ --fix",
-    "format": "prettier --write '**/*.ts' ",
+    "lint": "eslint . --ext .ts --ignore-pattern dist/",
+    "lint:fix": "npm run lint  --fix",
+    "format": "prettier --write .",
     "commit": "cz"
   },
   "keywords": [
@@ -42,12 +42,6 @@
     "commitizen": {
       "path": "@commitlint/cz-commitlint"
     }
-  },
-  "lint-staged": {
-    "**/*.{ts}": [
-      "eslint --fix",
-      "prettier --write"
-    ]
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^19.8.0",

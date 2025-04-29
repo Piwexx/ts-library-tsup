@@ -1,10 +1,10 @@
 {
   "include": ["src"],
-  "exclude": ["**/*.test.ts","node_modules", "dist"],
+  "exclude": ["**/*.test.ts", "node_modules", "dist"],
   "compilerOptions": {
     "module": "esnext",
     "target": "esnext",
-    "lib": ["esnext","DOM"],
+    "lib": ["esnext", "DOM"],
     "declaration": true,
     "strict": true,
     "moduleResolution": "node",

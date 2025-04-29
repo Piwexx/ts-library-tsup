@@ -1,47 +1,45 @@
-import tseslint from "typescript-eslint";
-import globals from "globals";
-import prettier from "eslint-plugin-prettier";
-import simpleImportSort from "eslint-plugin-simple-import-sort";
-import { defineConfig } from "eslint/config";
+import js from '@eslint/js';
+import prettier from 'eslint-plugin-prettier';
+import simpleImportSort from 'eslint-plugin-simple-import-sort';
+import globals from 'globals';
+import tseslint from 'typescript-eslint';
 
-export default defineConfig(
+export default [
+  js.configs.recommended, // Reglas recomendadas para JS
+  ...tseslint.configs.recommended, // Reglas recomendadas para TypeScript
   {
-    files: [`**/*.{ts}`],
     languageOptions: {
-      parser: tseslint.parser,
-      parserOptions: {
-        project: "./tsconfig.json",
-      },
       globals: globals.browser,
     },
     plugins: {
-      prettier,  // Aquí usamos la importación correcta
-      "simple-import-sort": simpleImportSort,  // Y aquí también
-    },
-    settings: {
-      "import/resolver": {
-        typescript: {
-          project: "./tsconfig.json"
-        }
-      }
+      prettier,
+      'simple-import-sort': simpleImportSort, // Cargar el plugin correctamente
     },
     rules: {
-      ...tseslint.configs.recommended,
-      "prettier/prettier": "error",
-      "simple-import-sort/imports": [
-        "error",
+      '@typescript-eslint/no-explicit-any': 'error',
+      'no-console': 'error',
+      'prettier/prettier': 'error',
+      'simple-import-sort/imports': [
+        'error',
         {
           groups: [
-            ["^@?\\w"],  // Librerías externas (sin React ni JSX)
-            ["^@/"],
-            ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
-            ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
-            ["^.+\\.s?css$"],
-            ["^"]
+            ['^react', '^@?\\w'],
+            ['^@/'],
+            ['^\\.\\.(?!/?$)', '^\\.\\./?$'],
+            ['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
+            ['^.+\\.s?css$'],
+            ['^'],
           ],
         },
       ],
-      "simple-import-sort/exports": "error",
+      'simple-import-sort/exports': 'error',
+    },
+    settings: {
+      'import/resolver': {
+        typescript: {
+          project: './tsconfig.json',
+        },
+      },
     },
   },
-);
+];
